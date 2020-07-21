@@ -1,7 +1,8 @@
 const express = require("express");
+const cors = require("cors")
 const imageRouter = require("./routes/images/images-router")
 const userRouter = require("./routes/users/users-router")
-const cors = require("cors")
+const fitnessRouter = require("./routes/fitness/fitness-router")
 const server = express();
 const PORT = process.env.PORT || 5555
 server.listen(PORT,() => {
@@ -12,6 +13,6 @@ server.listen(PORT,() => {
 server.use(express.json())
 server.use(cors())
 
-
+server.use("/api/v1/fitnessRouter",fitnessRouter)
 server.use("/api/v1/userRouter",userRouter)
 server.use("/api/v1/imageRouter",imageRouter)

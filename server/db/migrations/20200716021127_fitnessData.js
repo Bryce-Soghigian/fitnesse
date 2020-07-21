@@ -5,7 +5,7 @@ exports.up = function(knex) {
       table.integer("userId").references("id").inTable("users");
       table.integer("weight")
       table.integer("calorieCount")
-      table.date("currentDate")
+      table.string("currentDate").notNullable();
       table.text("workoutDuration")
 
   })
