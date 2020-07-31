@@ -6,9 +6,8 @@ const knex = require("../config/knex-config")
  * gets all of the users images
  */
 router.get("/:userId",(req,res) => {
-    const {userId} = req.params;
     knex.select()
-    .where({userId:userId})
+    .where({userId:req.params.userId})
     .from("images")
     .then(images => {
         console.log(images,"IMAGES")
@@ -19,9 +18,12 @@ router.get("/:userId",(req,res) => {
  * Posting an image to users array
  */
 router.post("/",(req,res) => {
-    const {body} = req.body;
     knex("images")
-    .insert({...body})
+    .insert({
+        userId:req.body.userId,
+        imageUrl:req.body.imageUrl,
+        currentDate:req.body.currentDate
+    })
     .returning("*")
     .then(data => {
         console.log(data)
