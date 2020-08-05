@@ -8,7 +8,9 @@ const PORT = process.env.PORT || 5555
 server.listen(PORT,() => {
     console.log(`===========Server is up on ${PORT}===========`)
 })
-
+server.get("/", (req,res) => {
+res.status(200).json({message:"server_is_awake"})
+})
 
 server.use(express.json())
 server.use(cors())
