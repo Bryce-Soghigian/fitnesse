@@ -37,6 +37,8 @@ router.get("/:id",(req,res) => {
     .then(fitnessData => {
         console.log(fitnessData,"fitnessData")
         res.status(200).json(fitnessData)
+    }).catch(err => {
+        res.status(500).json(err)
     })
 })
 /**

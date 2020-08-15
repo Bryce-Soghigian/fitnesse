@@ -1,7 +1,9 @@
 
 const initialState = {
     user:null,
-    isAuthenticated:null
+    isAuthenticated:null,
+    baseUrl:"https://fitnesse-api.herokuapp.com/api/v1/",
+    message:""
 }
 const reducer = (state, action) => {
     switch(action.type){
@@ -12,7 +14,24 @@ const reducer = (state, action) => {
                 user:action.payload,
                 isAuthenticated:true
             }
+        case "loginError":
+            return {
+                ...state,
+                errorMessage:action.payload.message
+            }
+        case "register":
+            return {
+                ...state,
+                message:"Sucessfully signed up. Please Login now!"
+            }
+        case "registerError":
+            return {
+                ...state,
+                errorMessage:action.payload.message
+            }
+
         default:
+            console.log("state",state)
             return {...state}
     }
 }
