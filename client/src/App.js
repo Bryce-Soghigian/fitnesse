@@ -8,6 +8,7 @@ import { reducer, initialState } from "./reducer";
 
 function App() {
   const [state, dispatch] = useReducer(reducer, initialState);
+  console.log(state,"state in app")
 
   return (
   <GlobalContext.Provider
@@ -19,6 +20,7 @@ function App() {
       <Route exact path="/" />
       <Route exact path="/login" component={Login}/>
       <Route exact path="/signin" />
+      <Route exact path="/goals" />
 
 
     </div>

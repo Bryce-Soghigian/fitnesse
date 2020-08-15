@@ -16,6 +16,11 @@ router.get("/:id", (req, res) => {
       res.status(500).json(err);
     });
 });
+
+
+/**
+ * Post a new goal
+ */
 router.post("/", (req, res) => {
   knex("goals")
     .insert({
