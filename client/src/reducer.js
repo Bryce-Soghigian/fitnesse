@@ -14,7 +14,6 @@ const reducer = (state, action) => {
                 isAuthenticated:true
             }
         case "loginError":
-            console.log(action.payload)
             return {
                 ...state,
                 errorMessage:action.payload.message
