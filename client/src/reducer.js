@@ -2,7 +2,6 @@
 const initialState = {
     user:null,
     isAuthenticated:null,
-    baseUrl:"https://fitnesse-api.herokuapp.com/api/v1/",
     message:""
 }
 const reducer = (state, action) => {
